@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Town } from '../town';
 
 @Component({
   selector: 'app-meteo',
