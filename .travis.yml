@@ -1,0 +1,27 @@
+language: 
+  node_js
+node_js:
+  - "7"
+sudo: required
+dist: trusty
+addons:
+    chrome: stable
+before_install:
+  - npm i -g npm@5.8.0
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9876 http://localhost &
+before_script:
+    - "sudo chown root /opt/google/chrome/chrome-sandbox"
+    - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+    - "export CHROME_BIN=google-chrome"
+    - "ng build --env prod --base-href https://jertran.github.io/front-angular/src"
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
+    - sleep 3 # give xvfb some time to start
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
+  
