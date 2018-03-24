@@ -2,7 +2,7 @@ language:
   node_js
 node_js:
   - "7"
-sudo: false
+sudo: required
 dist: trusty
 addons:
     chrome: stable
@@ -11,6 +11,7 @@ before_install:
 before_script:
     - "sudo chown root /opt/google/chrome/chrome-sandbox"
     - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+    - "export CHROME_BIN=google-chrome"
 deploy:
   provider: pages
   skip-cleanup: true
@@ -19,4 +20,3 @@ deploy:
   on:
     branch: master
   local-dir: "src"
-  run: "export CHROME_BIN=google-chrome"
