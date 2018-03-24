@@ -13,7 +13,7 @@ before_script:
     - "sudo chown root /opt/google/chrome/chrome-sandbox"
     - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
     - "export CHROME_BIN=google-chrome"
-    - "ng build --env prod"
+    - "ng build --env prod --base-href src"
     - "export DISPLAY=:99.0"
     - "sh -e /etc/init.d/xvfb start"
     - sleep 3 # give xvfb some time to start
