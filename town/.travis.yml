@@ -1,5 +1,5 @@
 deploy:
-  local-dir: "/home/cabox/workspace/town/src"
+  local-dir: "/home/cabox/workspace/town"
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
