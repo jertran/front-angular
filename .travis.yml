@@ -12,3 +12,4 @@ deploy:
   on:
     branch: master
   local-dir: "src"
+  run: "export CHROME_BIN=google-chrome"
