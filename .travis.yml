@@ -1,6 +1,9 @@
 language: 
   node_js
-
+node_js:
+  - "0.10"
+before_install:
+  - npm i -g npm@5.8.0
 deploy:
   local-dir: "./town"
   provider: pages
