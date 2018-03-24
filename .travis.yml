@@ -11,4 +11,4 @@ deploy:
   keep-history: true
   on:
     branch: master
-  local-dir: "town"
+  local-dir: "src"
