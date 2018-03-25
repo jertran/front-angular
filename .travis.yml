@@ -20,7 +20,7 @@ before_script:
 deploy:
   provider: pages
   skip-cleanup: true
-  local-dir: ${TRAVIS_BUILD_DIR}/output
+  local-dir: src
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
   on:
