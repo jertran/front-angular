@@ -13,14 +13,14 @@ before_script:
     - "sudo chown root /opt/google/chrome/chrome-sandbox"
     - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
     - "export CHROME_BIN=google-chrome"
-    - "ng build --env prod --base-href https://jertran.github.io/front-angular/"
+    - "ng build --env prod --base-href"
     - "export DISPLAY=:99.0"
     - "sh -e /etc/init.d/xvfb start"
     - sleep 3 # give xvfb some time to start
 deploy:
   provider: pages
   skip-cleanup: true
-  local-dir: src
+  local-dir: ${TRAVIS_BUILD_DIR}/output
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
   on:
