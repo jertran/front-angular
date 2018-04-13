@@ -7,6 +7,8 @@ import { } from '@types/googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import { WeatherService } from '../weather.service';
 import { LocationComponent } from './location.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 describe('LocationComponent', () => {
   let component: LocationComponent;
