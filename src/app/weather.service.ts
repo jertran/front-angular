@@ -29,7 +29,7 @@ export class WeatherService {
   
   newForecastRequest() {
     /// Create a new location trigger
-    this._locationTrigger.next(event);
+    this._locationTrigger.next();
   }
 
   get locationsTrigger$() {
