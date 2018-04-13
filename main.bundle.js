@@ -447,7 +447,7 @@ var WeatherService = (function () {
     };
     WeatherService.prototype.newForecastRequest = function () {
         /// Create a new location trigger
-        this._locationTrigger.next(event);
+        this._locationTrigger.next();
     };
     Object.defineProperty(WeatherService.prototype, "locationsTrigger$", {
         get: function () {
