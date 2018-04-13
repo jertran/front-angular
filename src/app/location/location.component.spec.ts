@@ -14,7 +14,7 @@ describe('LocationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocalForecastComponent ],
+      declarations: [ LocationComponent ],
       imports: [
         BrowserModule,
         AgmCoreModule.forRoot({
