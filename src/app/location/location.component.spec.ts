@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { } from '@types/googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import { WeatherService } from '../weather.service';
@@ -13,13 +14,16 @@ describe('LocationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocationComponent ],
+      declarations: [ LocalForecastComponent ],
       imports: [
+        BrowserModule,
         AgmCoreModule.forRoot({
           apiKey: "AIzaSyCo9k2z8br56H8foQ10J-CWQI9guxs60lQ",
           libraries: ["places"]
         }),
         FormsModule, 
+        ReactiveFormsModule,
+        HttpClientModule
       ],
       providers: [WeatherService]
     })
