@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { WeatherService } from './weather.service';
+import { WeatherService } from '../weather.service';
 import { LocalForecastComponent } from './local-forecast.component';
 import { AgmCoreModule } from '@agm/core';
 import { BrowserModule } from '@angular/platform-browser';
