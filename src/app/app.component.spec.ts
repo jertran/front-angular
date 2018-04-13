@@ -1,15 +1,31 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { enableProdMode } from '@angular/core';
+import { LocalForecastComponent } from './local-forecast/local-forecast.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { WeatherService } from './weather.service';
+
+import { AppComponent } from './app.component';
 import { MeteoComponent } from './meteo/meteo.component';
 import { LocationComponent } from './location/location.component';
-import { LocalForecastComponent } from './local-forecast/local-forecast.component';
-import { WeatherService } from './weather.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MeteoComponent
+        MeteoComponent,
+        LocationComponent,
+        WeatherService,
+        FormsModule,
+        ReactiveFormsModule,
+        AgmCoreModule,
+        NgModule,
+        BrowserModule
       ],
     }).compileComponents();
   }));
