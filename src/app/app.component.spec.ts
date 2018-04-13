@@ -20,13 +20,19 @@ describe('AppComponent', () => {
         AppComponent,
         MeteoComponent,
         LocationComponent,
-        WeatherService,
-        FormsModule,
-        ReactiveFormsModule,
-        AgmCoreModule,
-        NgModule,
-        BrowserModule
+        LocalForecastComponent
       ],
+      imports: [
+        BrowserModule,
+        AgmCoreModule.forRoot({
+          apiKey: "AIzaSyCo9k2z8br56H8foQ10J-CWQI9guxs60lQ",
+          libraries: ["places"]
+        }),
+        FormsModule, 
+        ReactiveFormsModule,
+        HttpClientModule
+      ],
+      providers: [WeatherService]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
