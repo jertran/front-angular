@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { MeteoComponent } from './meteo/meteo.component';
 import { LocationComponent } from './location/location.component';
 import { LocalForecastComponent } from './local-forecast/local-forecast.component';
-import { WheatherService } from './wheather.service';
+import { WeatherService } from './weather.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
