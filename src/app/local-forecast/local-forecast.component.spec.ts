@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { WeatherService } from './weather.service';
 import { LocalForecastComponent } from './local-forecast.component';
+import { AgmCoreModule } from '@agm/core';
 
 describe('LocalForecastComponent', () => {
   let component: LocalForecastComponent;
@@ -9,6 +10,16 @@ describe('LocalForecastComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LocalForecastComponent ],
+      imports: [
+        BrowserModule,
+        AgmCoreModule.forRoot({
+          apiKey: "AIzaSyCo9k2z8br56H8foQ10J-CWQI9guxs60lQ",
+          libraries: ["places"]
+        }),
+        FormsModule, 
+        ReactiveFormsModule,
+        HttpClientModule
+      ],
       providers: [WeatherService]
     })
     .compileComponents();

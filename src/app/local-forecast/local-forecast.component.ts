@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { Observable } from 'rxjs/Observable';
-import { AppSettings } from '../app.settings'
+import { AppSettings } from '../app.settings';
 import 'rxjs/add/operator/do'
 
 @Component({
