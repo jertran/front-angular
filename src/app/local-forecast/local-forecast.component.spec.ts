@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { WeatherService } from './weather.service';
 import { LocalForecastComponent } from './local-forecast.component';
 
 describe('LocalForecastComponent', () => {
@@ -8,7 +8,8 @@ describe('LocalForecastComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocalForecastComponent ]
+      declarations: [ LocalForecastComponent ],
+      providers: [WeatherService]
     })
     .compileComponents();
   }));
