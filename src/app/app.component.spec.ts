@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { WeatherService } from './weather.service';
 
-import { AppComponent } from './app.component';
 import { MeteoComponent } from './meteo/meteo.component';
 import { LocationComponent } from './location/location.component';
 describe('AppComponent', () => {
