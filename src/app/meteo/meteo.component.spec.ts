@@ -9,8 +9,9 @@ describe('MeteoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MeteoComponent ],
-      providers: [WeatherService]
+      declarations: [ MeteoComponent,
+                      HttpClientModule ],
+      providers: [ WeatherService ]
     })
     .compileComponents();
   }));
