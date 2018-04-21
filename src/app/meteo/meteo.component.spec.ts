@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MeteoComponent } from './meteo.component';
 import { WeatherService } from '../weather.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('MeteoComponent', () => {
   let component: MeteoComponent;
