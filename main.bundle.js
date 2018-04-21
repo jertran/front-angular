@@ -368,7 +368,7 @@ module.exports = ""
 /***/ "./src/app/meteo/meteo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  {{town.name}} {{town.temperature}}°C\n</p>\n"
+module.exports = "Coming from Ruby App JSON API\n<p>\n  {{town.name}} {{town.temperature}}°C\n</p>\n"
 
 /***/ }),
 
@@ -378,6 +378,8 @@ module.exports = "<p>\n  {{town.name}} {{town.temperature}}°C\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MeteoComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__weather_service__ = __webpack_require__("./src/app/weather.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__town__ = __webpack_require__("./src/app/town.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -388,21 +390,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var MeteoComponent = (function () {
-    function MeteoComponent() {
-        this.town = { id: 1, name: 'VALLATOWN', temperature: 1000, icon: "sun" };
+    function MeteoComponent(WeatherService) {
+        this.WeatherService = WeatherService;
+        this.town = new __WEBPACK_IMPORTED_MODULE_2__town__["a" /* Town */]();
     }
     MeteoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.WeatherService.getTownById(1).subscribe(function (town) { return _this.town = town; });
     };
     MeteoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-meteo',
             template: __webpack_require__("./src/app/meteo/meteo.component.html"),
-            styles: [__webpack_require__("./src/app/meteo/meteo.component.css")]
+            styles: [__webpack_require__("./src/app/meteo/meteo.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_1__weather_service__["a" /* WeatherService */]]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__weather_service__["a" /* WeatherService */]])
     ], MeteoComponent);
     return MeteoComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/town.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Town; });
+var Town = (function () {
+    function Town() {
+    }
+    return Town;
 }());
 
 
@@ -435,6 +458,7 @@ var WeatherService = (function () {
         this._coordsTrigger = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
         this._locationTrigger = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
         this.ROOT_URL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/31fb9ed2fc5a7c2766847cefdcca8570/";
+        this.JSON_URL = "https://cors-anywhere.herokuapp.com/https://projet-app.herokuapp.com/towns/";
         this.setLatLng$ = this._coordsTrigger.asObservable();
     }
     WeatherService.prototype.currentForecast = function () {
@@ -446,7 +470,6 @@ var WeatherService = (function () {
         this._coordsTrigger.next(data);
     };
     WeatherService.prototype.newForecastRequest = function () {
-        /// Create a new location trigger
         this._locationTrigger.next();
     };
     Object.defineProperty(WeatherService.prototype, "locationsTrigger$", {
@@ -456,6 +479,9 @@ var WeatherService = (function () {
         enumerable: true,
         configurable: true
     });
+    WeatherService.prototype.getTownById = function (id) {
+        return this.http.get(this.JSON_URL + id + ".json");
+    };
     WeatherService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
